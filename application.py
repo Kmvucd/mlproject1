@@ -10,18 +10,22 @@ application=Flask(__name__)
 app=application
 
 ## Route for a home page
+from flask import redirect, url_for
 
 @app.route('/')
 def index():
-    # return """
-    # <html>
-    #     <body style="color:black;">
-    #         <h1>Welcome to the HomePage</h1>
-    #         <p>Thank you</p>
-    #     </body>
-    # </html>
-    # """
-    return render_template('index.html') 
+    return redirect(url_for('predict_datapoint'))
+# @app.route('/')
+# def index():
+#     # return """
+#     # <html>
+#     #     <body style="color:black;">
+#     #         <h1>Welcome to the HomePage</h1>
+#     #         <p>Thank you</p>
+#     #     </body>
+#     # </html>
+#     # """
+#     return render_template('index.html') 
 
 @app.route('/predictdata',methods=['GET','POST'])
 def predict_datapoint():
